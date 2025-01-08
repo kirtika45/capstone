@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Registration Validator</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #004085;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        input:focus {
+            border-color: #0056b3;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #003d6b;
+        }
+
+        .vehicle-details {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #004085;
+            color: white;
+        }
+
+        .warning {
+            color: black;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            input {
+                width: 100%;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Vehicle Insurance and Pollution Check</h1>
+
+    <form action="/" method="POST">
+        <label for="regInput">Enter Vehicle Registration Number:</label>
+        <input type="text" id="regInput" name="regNo" placeholder="e.g., AB12CD3456" 
+       value="{{ request.form.regNo if request.method == 'POST' else '' }}" required>
+
+        <button type="submit">Validate</button>
+    </form>
+
+    {% if vehicle %}
+    <div class="vehicle-details">
+        <h3>Vehicle Details</h3>
+        <table>
+            {% for key, value in vehicle.items() %}
+            <tr>
+                <th>{{ key.replace('_', ' ').upper() }}</th>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        
+
+        <h3>Document Status</h3>
+        <div class="warning">{{ insurance_warning }}</div>
+        <div class="warning">{{ puc_warning }}</div>
+        <div class="warning">{{ fitness_warning }}</div>
+    </div>
+    {% endif %}
+</body>
+</html>
