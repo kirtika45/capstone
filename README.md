@@ -23,7 +23,9 @@ This project focuses on automating the verification of vehicle insurance, pollut
   - Flask / Django (for web integration)
   - Pandas
   - NumPy
-- **Databases:** MySQL / PostgreSQL
+- **Messaging Feature:** Twilio
+  
+
 
 ## Architecture
 1. **Data Collection:**
@@ -49,10 +51,6 @@ This project focuses on automating the verification of vehicle insurance, pollut
    ```bash
    pip install flask
    pip install twilio
-   ```
-4. Set up the database by running the migration scripts:
-   ```bash
-   python manage.py migrate
    ```
 
 ## Usage
