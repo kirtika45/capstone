@@ -43,11 +43,12 @@ This project focuses on automating the verification of vehicle insurance, pollut
    ```
 2. Navigate to the project directory:
    ```bash
-   cd toll-gate-automation
+   cd capstone
    ```
 3. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip install flask
+   pip install twilio
    ```
 4. Set up the database by running the migration scripts:
    ```bash
