@@ -17,7 +17,7 @@ This project focuses on automating the verification of vehicle insurance, pollut
 - **Scalable Architecture:** Designed to handle high traffic volumes efficiently.
 
 ## Technologies Used
-- **Programming Languages:** Python, SQL
+- **Programming Languages:** Python, JavaScript and, HTML
 - **Hardware:** RFID readers and FASTag-enabled vehicles
 - **Frameworks and Libraries:**
   - Flask / Django (for web integration)
